@@ -48,3 +48,17 @@
         }
       });
   });
+
+  // This function handles events where the add search button is clicked
+  $("#add-search-button").on("click", function(event) {
+    event.preventDefault();
+    // This line of code will grab the input from the textbox
+    var subject = $("#nature-input").val().trim();
+
+    // The movie from the textbox is then added to our array
+    natureSearch.push(subject);
+
+    // Calling renderButtons which handles the processing of our movie array
+    renderButtons();
+
+  });
