@@ -1,46 +1,65 @@
- // Event listener for all button elements
- $("button").on("click", function() {
-    // In this case, the "this" keyword refers to the button that was clicked
-    var person = $(this).attr("data-resort");
+ var natureArray = ["Beaches","Mountains"];
 
-    // Constructing a URL to search Giphy for the name of the person who said the quote
+ function renderButtons() {
+
+  // Deleting the buttons prior to adding new buttons
+  // (this is necessary otherwise we will have repeat buttons)
+  $("#buttons-view").empty();
+
+  // Looping through the array
+  for (var i = 0; i < natureArray.length; i++) {
+
+    // Then dynamicaly generating buttons for each movie in the array.
+    // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+    var a = $("<button>");
+    // Adding a class
+    a.addClass("nature");
+    // Adding a data-attribute with a value of the movie at index i
+    a.attr("data-term", natureArray[i]);
+    // Providing the button's text with a value of the movie at index i
+    a.text(natureArray[i]);
+    // Adding the button to the HTML
+    $("#buttons-view").append(a);
+  }
+}
+ // Event listener for all button elements
+ $("button").on("click", function(event) {
+    event.preventDefault();
+    
+    var natureTerm = $(this).attr("data-term");
+    console.log(natureTerm);
+    // Constructing a URL to search Giphy for nature term
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-      person + "&api_key=3HPY5IJdMQEsEptdLFxbSXs6eC04Mr7q&limit=10";
+      natureTerm + "&api_key=3HPY5IJdMQEsEptdLFxbSXs6eC04Mr7q&limit=10";
 
     // Performing our AJAX GET request
     $.ajax({
       url: queryURL,
       method: "GET"
     })
-      // After the data comes back from the API
+      // After the data comes back from the API store the response
       .then(function(response) {
-        // Storing an array of results in the results variable
         var results = response.data;
+        
+        $("#gifs-appear-here").empty();
 
-        // Looping over every result item
         for (var i = 0; i < results.length; i++) {
 
           // Only taking action if the photo has an appropriate rating
           if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-            // Creating a div for the gif
+          
             var gifDiv = $("<div>");
-
-            // Storing the result item's rating
             var rating = results[i].rating;
-
-            // Creating a paragraph tag with the result item's rating
+            
             var p = $("<p>").text("Rating: " + rating);
-
-            // Creating an image tag
-            var personImage = $("<img>");
+            var natureImage = $("<img>");
 
             // Giving the image tag an src attribute of a proprty pulled off the
             // result item
-            personImage.attr("src", results[i].images.fixed_height.url);
+            natureImage.attr("src", results[i].images.fixed_height.url);
 
-            // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.append(p);
-            gifDiv.append(personImage);
+            gifDiv.append(natureImage);
 
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
             $("#gifs-appear-here").prepend(gifDiv);
@@ -50,15 +69,17 @@
   });
 
   // This function handles events where the add search button is clicked
-  $("#add-search-button").on("click", function(event) {
+  $("#add-term-button").on("click", function(event) {
     event.preventDefault();
     // This line of code will grab the input from the textbox
+    $("#gifs-appear-here").empty();
+
     var subject = $("#nature-input").val().trim();
-
-    // The movie from the textbox is then added to our array
-    natureSearch.push(subject);
-
-    // Calling renderButtons which handles the processing of our movie array
+    natureArray.push(subject);
+    
+    // Calling renderButtons which handles the processing of our term array
     renderButtons();
 
   });
+
+  renderButtons();
