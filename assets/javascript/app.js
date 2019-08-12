@@ -1,11 +1,10 @@
 var topics = ["Football", "Tennis", "Surfing", "Skiing", "Biking", "Hiking", "Running", "Swimming", "Gymnastics", "Hockey","Basketball","Baseball"];
 
-renderButtons();
 
 function renderButtons() {
 
   // Deleting the buttons prior to adding new buttons
-  // (this is necessary otherwise we will have repeat buttons)
+ 
   $("#buttons-view").empty();
 
   for (var i = 0; i < topics.length; i++) {
@@ -18,19 +17,19 @@ function renderButtons() {
     $("#buttons-view").append(a);
   }
 }
+renderButtons();
+
 
 // Event listener for all button elements
-//$("button").on("click", function(event) {
 $(document).on("click", "button", function () {
   event.preventDefault();
 
   var natureTerm = $(this).attr("data-term");
 
-  // Constructing a URL to search Giphy for nature term
+  // Constructing a URL to search Giphy for search term
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     natureTerm + "&api_key=3HPY5IJdMQEsEptdLFxbSXs6eC04Mr7q&limit=10";
 
-  // Performing our AJAX GET request
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -41,9 +40,9 @@ $(document).on("click", "button", function () {
 
       $("#gifs-appear-here").empty();
 
+       // Only taking action if the photo has an appropriate rating
       for (var i = 0; i < results.length; i++) {
-        console.log(results);
-        // Only taking action if the photo has an appropriate rating
+
         var rating = results[i].rating;
         var title = results[i].title;
 
@@ -59,8 +58,8 @@ $(document).on("click", "button", function () {
 
           var natureImage = $("<img>");
 
-          // Giving the image tag an src attribute of a proprty pulled off the
-          // result item
+          // Giving the image tag an src attribute of the still pic 
+          // Store the animated image src in data attribute
           natureImage.attr("src", results[i].images.fixed_height_still.url);
           natureImage.attr("data-still", results[i].images.fixed_height_still.url);
           natureImage.attr("data-state", "still");
@@ -81,7 +80,6 @@ $(document).on("click", "button", function () {
 $(document).on("click", ".gif", function () {
   
   var state = $(this).attr("data-state");
-  console.log("state " + state);
   // If the clicked image's state is still, update its src attribute to what its data-animate value is.
   // Then, set the image's data-state to animate
   // Else set src to the data-still value
