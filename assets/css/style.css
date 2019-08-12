@@ -22,3 +22,7 @@ a:link {
     margin-bottom: 20px;
     /* margin-left: 5px; */
   }
+
+.addbutton {
+    text-align: right;
+}
