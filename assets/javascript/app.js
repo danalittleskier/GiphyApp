@@ -1,4 +1,4 @@
-var topics = ["Sandy Beach", "Mountain", "Surfing", "Skiing"];
+var topics = ["Sandy Beach", "Mountain", "Surfing", "Skiing", "Biking", "Hiking", "Concert"];
 
 renderButtons();
 
@@ -42,14 +42,21 @@ $(document).on("click", "button", function () {
       $("#gifs-appear-here").empty();
 
       for (var i = 0; i < results.length; i++) {
-
+        console.log(results);
         // Only taking action if the photo has an appropriate rating
-        if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+        var rating = results[i].rating;
+        var title = results[i].title;
+
+        if (rating !== "r" && rating !== "pg-13") {
           var gifDiv = $("<div>");
           gifDiv.addClass("col-sm")
-          var rating = results[i].rating;
+          
+          var titleText = $("<p>").text(title);
+          titleText.addClass("text-muted");
 
-          var p = $("<p>").text("Rating: " + rating);
+          var ratingText = $("<p>").text("Rated: " + rating);
+          ratingText.addClass("text-muted");
+
           var natureImage = $("<img>");
 
           // Giving the image tag an src attribute of a proprty pulled off the
@@ -60,8 +67,9 @@ $(document).on("click", "button", function () {
           natureImage.attr("data-animate", results[i].images.fixed_height.url);
           natureImage.addClass("gif");
 
+          gifDiv.append(titleText);
           gifDiv.append(natureImage);
-          gifDiv.append(p);
+          gifDiv.append(ratingText);
 
           // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
           $("#gifs-appear-here").append(gifDiv);
