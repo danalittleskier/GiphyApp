@@ -1,8 +1,20 @@
 .jumbotron{
     margin: 10px;
+    background-image: url("../images/sports.jpg"); 
+    height: 100%;
 }
 
 .nature {
     padding: 2px;
     margin: 5px;
 }
+p {
+    margin: 5px 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: #bbb;
+    margin-bottom: 20px;
+    /* margin-left: 5px; */
+  }

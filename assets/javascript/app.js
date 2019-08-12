@@ -49,7 +49,7 @@ $(document).on("click", "button", function () {
 
         if (rating !== "r" && rating !== "pg-13") {
           var gifDiv = $("<div>");
-          gifDiv.addClass("col-sm")
+          gifDiv.addClass("float-sm-left p-3")
           
           var titleText = $("<p>").text(title);
           titleText.addClass("text-muted");
@@ -65,14 +65,14 @@ $(document).on("click", "button", function () {
           natureImage.attr("data-still", results[i].images.fixed_height_still.url);
           natureImage.attr("data-state", "still");
           natureImage.attr("data-animate", results[i].images.fixed_height.url);
-          natureImage.addClass("gif");
+          natureImage.addClass("img-thumbnail gif");
 
           gifDiv.append(titleText);
           gifDiv.append(natureImage);
           gifDiv.append(ratingText);
 
           // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-          $("#gifs-appear-here").append(gifDiv);
+          $("#gifs-appear-here").prepend(gifDiv);
         }
       }
     });
