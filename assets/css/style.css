@@ -1,7 +1,11 @@
 .jumbotron{
     margin: 10px;
     background-image: url("../images/sports.jpg"); 
-    height: 100%;
+    height: 450px; /* You must set a specified height */
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    text-align: center;
 }
 
 .nature {

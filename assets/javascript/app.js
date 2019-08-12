@@ -1,4 +1,4 @@
-var topics = ["Sandy Beach", "Mountain", "Surfing", "Skiing", "Biking", "Hiking", "Concert"];
+var topics = ["Football", "Tennis", "Surfing", "Skiing", "Biking", "Hiking", "Running", "Swimming", "Gymnastics", "Hockey","Basketball","Baseball"];
 
 renderButtons();
 
