@@ -1,14 +1,15 @@
+
 .jumbotron{
     margin: 10px;
     background-image: url("../images/sports.jpg"); 
-    height: 450px; /* You must set a specified height */
+    height: 500px; /* You must set a specified height */
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
     text-align: center;
 }
 
-.nature {
+button {
     padding: 2px;
     margin: 5px;
 }
@@ -25,4 +26,12 @@ a:link {
 
 .addbutton {
     text-align: right;
+}
+.footer {
+    clear: both;
+    height: 50px;
+    margin-top: 10px;
+    font-size: 0.5em;
+    text-align: center;
+    color: #bbb;
 }
