@@ -12,6 +12,7 @@
                 crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css">
 
+
         <title>Giphy App</title>
 </head>
 
@@ -22,27 +23,37 @@
                 <hr class="my-4">
 
         </div>
-        <div id="buttons-view">
+        <div class="container">
+                <div class="row my-4">
+                        <div class="col-sm">
+                          <div id="buttons-view">
+                                  
+                          </div>
+                        </div>
+                </div>
+                <div class="row my-4">
+                        <div class="col-sm">
+                          <form id="nature-terms-form">
+                                        <label for="nature-input">Add a new nature topic search button</label>
+                                        <input type="text" id="nature-input"><br>
+                        
+                                        <input id="add-term-button" class="btn btn-info" type="submit" value="Add new button">
+                          </form>
+                        </div>
+                </div>
+                <div id="gifs-appear-here" class="row my-4">
+                        <!-- <div id="gifs-appear-here" class="col-med-6">
 
+                        </div> -->
+                        
+                </div>
         </div>
-        <form id="nature-terms-form">
-                <label for="nature-input">Add a new nature theme search button</label>
-                <input type="text" id="nature-input"><br>
+        
 
-                <!-- Button triggers new movie to be added -->
-                <input id="add-term-button" type="submit" value="Add new button">
-        </form>
-        <!-- <button data-resort="Beach sand">Beaches</button>
-    <button data-resort="Palm Tree">Palm Tree</button>
-    <button data-resort="Mountains">Mountains</button> -->
-        <br>
-        <div id="gifs-appear-here">
-        </div>
-
-       
         <!-- jQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
