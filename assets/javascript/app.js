@@ -53,6 +53,9 @@ $(document).on("click", "button", function () {
           var titleText = $("<p>").text(title);
           titleText.addClass("text-muted");
 
+          var favoriteButton = $("<button>");
+          favoriteButton.addClass("favorite");
+
           var ratingText = $("<p>").text("Rated: " + rating);
           ratingText.addClass("text-muted");
 

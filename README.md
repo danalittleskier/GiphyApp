@@ -1,7 +1,7 @@
 # GifTastic
 
-* This aplication is searching fun gifs by hitting the Giphy API and dinamically updating the page with your topic search.
-* The topic is Sports (e.g. Gymnastics, Football, Tennis)
+* This aplication is searching for fun gifs by hitting the Giphy API and dinamically updating the page with your the button's search topic.
+* Sports (e.g. Gymnastics, Football, Tennis) are used as featured topic.
 
 ### Usage
 
@@ -14,3 +14,5 @@
 * There is an add button form to add new sport button to the page.
 
 * The page has responsive design to be viewed on mobile devices too.
+
+![ScreenShot](https://raw.github.com/danalittleskier/GiphyApp/master/)
