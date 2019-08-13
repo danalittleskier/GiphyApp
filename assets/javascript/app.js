@@ -104,6 +104,8 @@ $(document).on("click", "#add-term-button", function () {
   if (topic !== "") {
     topics.push(topic);
   }
+  //Clear the text input field
+  $("#nature-input").val("");
   // Calling renderButtons which handles the processing of our term array
   renderButtons();
 
