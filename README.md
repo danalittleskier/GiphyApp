@@ -15,4 +15,6 @@
 
 * The page has responsive design to be viewed on mobile devices too.
 
+### Screenshot
+
 ![ScreenShot](https://raw.github.com/danalittleskier/GiphyApp/master/assets/images/GifTasticScreenShot.png)
